@@ -1,0 +1,36 @@
+.site-analytics{--analytics-ink:#17384d;--analytics-muted:#607889;--analytics-line:#d8e3e8;--analytics-surface:#fff;display:grid;gap:18px;color:var(--analytics-ink)}
+.analytics-toolbar{padding-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--analytics-line)}
+.analytics-toolbar>p{max-width:620px;margin:0;color:var(--analytics-muted);font-size:12px;line-height:1.55}
+.analytics-toolbar>div{display:flex;align-items:end;gap:9px}
+.analytics-toolbar label{display:grid;gap:5px;color:var(--analytics-muted);font-size:11px;font-weight:700}
+.analytics-toolbar select{min-height:38px;padding:0 30px 0 10px;border:1px solid #c8d5dc;border-radius:3px;background:#fff;color:var(--analytics-ink);font:inherit;font-size:12px}
+.analytics-toolbar select:focus{border-color:#1682a7;outline:3px solid #1682a72a;outline-offset:1px}
+.analytics-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.analytics-metric{min-height:102px;padding:15px 16px;display:grid;align-content:space-between;border:0;border-top:3px solid #1486a5;border-radius:2px;background:var(--analytics-surface)}
+.analytics-metric-story{border-top-color:#e66b3d}.analytics-metric-read{border-top-color:#29956e}.analytics-metric-click{border-top-color:#d6a52b}
+.analytics-metric span{color:#496474;font-size:11px;font-weight:700}
+.analytics-metric strong{color:#14364c;font-size:27px;line-height:1;font-weight:800}
+.analytics-metric small{color:#728895;font-size:10px}
+.analytics-panel{min-width:0;padding:18px;border:1px solid var(--analytics-line);border-radius:3px;background:var(--analytics-surface)}
+.analytics-panel>header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.analytics-panel h3{margin:0;color:#17384d;font-size:16px;line-height:1.35}
+.analytics-panel header p{margin:4px 0 0;color:var(--analytics-muted);font-size:11px;line-height:1.45}
+.analytics-activity>header>span{padding:5px 8px;border-radius:2px;background:#eaf5f1;color:#287351;font-size:10px;font-weight:700;white-space:nowrap}
+.analytics-chart-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
+.analytics-chart{min-width:640px;height:190px;margin-top:20px;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);align-items:stretch;gap:5px}
+.analytics-day{min-width:0;display:grid;grid-template-rows:minmax(0,1fr) 18px;text-align:center}
+.analytics-bars{min-height:0;display:flex;align-items:flex-end;justify-content:center;gap:2px;border-bottom:1px solid #dce6ea}
+.analytics-bar{width:min(6px,22%);min-height:0;display:block;border-radius:2px 2px 0 0}
+.analytics-bar-page{background:#1486a5}.analytics-bar-story{background:#e66b3d}.analytics-bar-read{background:#29956e}.analytics-bar-click{background:#d6a52b}
+.analytics-day small{overflow:hidden;color:#738894;font-size:8px;white-space:nowrap}
+.analytics-legend{margin-top:15px;display:flex;flex-wrap:wrap;gap:12px 18px}
+.analytics-legend span{display:inline-flex;align-items:center;gap:6px;color:#526b7a;font-size:10px}
+.analytics-legend i{width:8px;height:8px;display:inline-block;border-radius:2px}
+.analytics-empty{margin:18px 0 4px;color:#718592;font-size:12px;line-height:1.5}
+.analytics-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.analytics-ranking{margin:14px 0 0;padding:0;list-style:none}
+.analytics-ranking li{min-width:0;padding:11px 0;display:grid;gap:4px;border-top:1px solid #e5ecef}
+.analytics-ranking li strong{overflow-wrap:anywhere;color:#1e4055;font-size:12px;line-height:1.4}
+.analytics-ranking li span{overflow-wrap:anywhere;color:#687e8b;font-size:10px;line-height:1.4}
+@media(max-width:760px){.analytics-toolbar{align-items:stretch;flex-direction:column}.analytics-toolbar>div{align-items:end;justify-content:space-between}.analytics-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.analytics-detail-grid{grid-template-columns:minmax(0,1fr)}.analytics-panel{padding:15px}}
+@media(max-width:420px){.analytics-metrics{gap:8px}.analytics-metric{min-height:88px;padding:12px}.analytics-metric strong{font-size:23px}.analytics-toolbar>div{gap:8px}.analytics-toolbar select,.analytics-toolbar .studio-secondary{min-height:42px}.analytics-panel>header{align-items:flex-start;flex-direction:column}}

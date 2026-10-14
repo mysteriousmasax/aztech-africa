@@ -1,0 +1,1 @@
+.signup-form{flex-direction:column;gap:0}.signup-fields{display:flex;gap:9px}.signup-panel .signup-fields{flex-direction:row}.signup-compact .signup-fields{flex-direction:row}@media(max-width:640px){.signup-panel .signup-fields{flex-direction:column;gap:7px}}

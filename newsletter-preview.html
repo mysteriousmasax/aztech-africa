@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AzTech Africa | Newsletter Preview</title>
+  <style>
+    :root{font-family:Arial,Helvetica,sans-serif;color:#20384f;background:#edf1f3;--ink:#0b2744;--blue:#123557;--orange:#f06424;--line:#d7e3ec;--soft:#f4f8fb;--navy:#0d1f34;--navy-strong:#0b2744;--sky:#39b7ff;--green:#0b7d5b}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-width:320px;background:#edf2f6;color:var(--ink)}
+    a{text-decoration:none}
+    button,input,select{font:inherit}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border-radius:999px;border:1px solid transparent;background:#123557;color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+    .button:hover{transform:translateY(-1px)}
+    .button-orange{background:linear-gradient(135deg,#f06424,#f48f4f);box-shadow:0 12px 28px rgba(240,100,36,.24)}
+    .button-green{background:linear-gradient(135deg,#0d7f67,#19a67c);box-shadow:0 12px 28px rgba(13,127,103,.22)}
+    .site-header{position:sticky;top:0;z-index:10;background:rgba(10,25,42,.97);color:#f5f9fd;border-bottom:1px solid rgba(86,129,161,.65);box-shadow:0 10px 28px rgba(6,20,34,.14);backdrop-filter:blur(14px)}
+    .header-inner{display:flex;align-items:center;gap:18px;max-width:1380px;height:66px;padding:0 max(18px,calc((100vw - 1420px)/2));margin:0 auto}
+    .brand{display:inline-flex;align-items:center;gap:10px;color:#f5f9fd;font-size:16px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+    .brand-mark{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,#f06424 0%,#ffb067 100%);display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+    .brand .brand-word{display:inline-flex;align-items:baseline;gap:4px}
+    .brand .brand-word strong{color:#f5f9fd}
+    .brand .brand-word span{color:#ff8d61}
+    .main-nav{display:flex;align-items:center;gap:clamp(10px,1.2vw,18px);margin-left:10px;flex-wrap:wrap}
+    .main-nav a{position:relative;padding:7px 0;color:#d8e5f2;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .main-nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:#50c3ee;transform:scaleX(0);transform-origin:left;transition:transform .18s ease}
+    .main-nav a:hover::after,.main-nav a:focus-visible::after{transform:scaleX(1)}
+    .header-actions{display:flex;align-items:center;gap:9px;margin-left:auto}
+    .header-actions .secondary-link,.header-actions .primary-link{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid rgba(144,189,215,.5);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;transition:all .18s ease}
+    .header-actions .secondary-link{background:rgba(255,255,255,.04);color:#dfeefb}
+    .header-actions .primary-link{background:linear-gradient(135deg,#f06424,#f48f4f);color:#fff;border-color:transparent;box-shadow:0 12px 28px rgba(240,100,36,.28)}
+    .header-actions .secondary-link:hover,.header-actions .primary-link:hover{transform:translateY(-1px)}
+    .topbar-label,.eyebrow{font-size:11px;font-weight:700;letter-spacing:1px}
+    main{max-width:1460px;margin:0 auto;padding:24px 22px 40px}
+    .page-utility{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .eyebrow{color:#1478a5}
+    h1{margin:5px 0 0;color:var(--ink);font-size:22px;line-height:1.25}
+    .device-switch,.editor-tools,.view-switch{display:flex;flex-wrap:wrap;gap:3px;padding:4px;border:1px solid var(--line);border-radius:5px;background:#fff}
+    .device-switch button,.editor-tools button,.reset-button,.view-switch button{min-height:36px;padding:0 13px;border:0;border-radius:3px;background:transparent;color:#34495d;font:700 12px Arial,Helvetica,sans-serif;cursor:pointer}
+    .device-switch button[aria-pressed="true"],.view-switch button[aria-pressed="true"]{background:var(--blue);color:#fff}
+    .workflow-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 18px}
+    .workflow-step{display:flex;gap:10px;align-items:center;padding:12px 14px;border:1px solid #d9e4ef;background:#fff;border-radius:12px;box-shadow:0 8px 18px rgba(11,39,68,.04)}
+    .workflow-step span{width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:#eef7ff;color:#0b2744;font-weight:800;font-size:11px}
+    .workflow-step strong{display:block;color:#0b2744;font-size:12px;line-height:1.25}
+    .workflow-step small{display:block;color:#62798d;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+    .workspace{display:grid;grid-template-columns:minmax(340px,.85fr) minmax(420px,1.15fr);gap:18px;align-items:start}
+    .editor,.preview{min-width:0;border:1px solid #d6e2ec;background:#fff;border-radius:14px;box-shadow:0 16px 30px rgba(10,27,41,.04)}
+    .editor{padding:18px}
+    .editor-heading,.preview-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+    .editor-heading h2,.preview-heading h2{margin:0;color:var(--ink);font-size:15px}
+    .save-status{color:#537060;font-size:11px}
+    .editor-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+    .editor-actions a,.editor-actions button{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 10px;border:1px solid #d7e5ef;border-radius:999px;background:#fff;color:#184765;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .editor-actions .primary-action{background:linear-gradient(135deg,#123557,#1d4f79);color:#fff;border-color:transparent}
+    label{display:grid;gap:6px;margin-bottom:14px;color:#526b82;font-size:11px;font-weight:700}
+    input,.rich-editor{width:100%;min-width:0;border:1px solid var(--line);border-radius:3px;background:#fff;color:#20384f;font:inherit;font-size:13px}
+    input{height:39px;padding:0 10px}
+    .rich-editor{min-height:480px;padding:18px;overflow:auto;border-color:#244764;background:#0b1f38;color:#eaf4f8;font-size:14px;line-height:1.65;outline:none}
+    .rich-editor:focus,input:focus{outline:2px solid #1380b84d;border-color:#1380b8}
+    .rich-editor h2{margin:24px 0 12px;color:#83c4e4;font-family:Georgia,'Times New Roman',serif;font-size:21px;line-height:1.3}
+    .rich-editor h3{margin:0 0 10px;color:#fff;font-size:18px;line-height:1.4}
+    .rich-editor p{margin:0 0 16px;color:#eaf4f8}
+    .rich-editor blockquote{margin:20px 0;padding:12px 16px;border-left:3px solid var(--orange);background:#123a58;color:#eaf4f8}
+    .rich-editor a{color:#ff8a4c}
+    .editor-tools{margin:0 0 14px;padding:0;border:0;background:transparent}
+    .editor-tools button{border:1px solid var(--line);background:#fff}
+    .editor-tools button:hover,.reset-button:hover{border-color:#1380b8;color:#0b6899}
+    .optional-fields{margin:12px 0;border-top:1px solid #e1e8ee;border-bottom:1px solid #e1e8ee}
+    .optional-fields summary{padding:12px 0;color:#123557;font-size:12px;font-weight:700;cursor:pointer}
+    .optional-fields[open] summary{margin-bottom:12px}
+    .optional-fields .rich-editor{min-height:140px;margin-bottom:12px}
+    .swahili-toggle{display:flex;align-items:center;gap:8px;margin:0 0 12px;color:#526b82;font-size:11px;font-weight:600}
+    .swahili-toggle input[type="checkbox"]{width:16px;height:16px;flex:none;margin:0;accent-color:var(--orange)}
+    .editor-subtools{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:-4px 0 12px}
+    .editor-subtools input{height:36px;margin:0;font-size:12px}
+    .small-action{min-height:36px;padding:0 11px;border:1px solid var(--line);border-radius:3px;background:#fff;color:#34495d;font:700 11px Arial,Helvetica,sans-serif;cursor:pointer}
+    .insert-url{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin:0 0 12px}
+    .insert-url input{height:36px;margin:0;font-size:11px}
+    .merge-tools{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+    .merge-tools button{padding:6px 8px;border:1px solid var(--line);border-radius:3px;background:#f5f8fa;color:#244764;font:11px Consolas,'Courier New',monospace;cursor:pointer}
+    .export-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .send-note{margin:12px 0 0;padding:10px 12px;border-left:3px solid #f06424;background:#fff7f1;color:#65432f;font-size:11px;line-height:1.5}
+    .field-help{margin:-8px 0 12px;color:#718397;font-size:10px;line-height:1.5}
+    .inbox-snippet{margin:-6px 0 14px;padding:10px 12px;border-left:3px solid #00a3e0;background:#f5f8fa;color:#526b82;font-size:11px;line-height:1.5;overflow-wrap:anywhere}
+    .inbox-snippet strong{color:#0b2744}
+    .editor-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+    .reset-button{border:1px solid var(--line);background:#fff}
+    .preview{position:sticky;top:16px;padding:16px;background:#f8fafb}
+    .preview-heading{margin-bottom:12px}
+    .view-switch{margin-bottom:12px}
+    .preview-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+    .preview-tools label{display:flex;align-items:center;gap:7px;margin:0;font-size:11px}
+    .preview-tools select{height:36px;padding:0 9px;border:1px solid var(--line);border-radius:3px;background:#fff;color:#20384f;font:inherit;font-size:12px}
+    .orientation-switch{display:flex;gap:4px}
+    .orientation-switch button{min-height:34px;padding:0 10px;border:1px solid var(--line);border-radius:3px;background:#fff;color:#34495d;font:700 11px Arial,Helvetica,sans-serif;cursor:pointer}
+    .orientation-switch button[aria-pressed="true"]{border-color:#123557;background:#123557;color:#fff}
+    .preview-stage{display:flex;justify-content:center;min-height:760px;padding:18px;background:#e2e9ed;border-radius:12px}
+    .phone-shell{width:min(100%,390px);aspect-ratio:393/852;padding:10px;border:1px solid #203044;border-radius:34px;background:#091827;box-shadow:0 20px 44px rgba(16,37,58,.24);transition:all .2s ease}
+    .phone-screen{height:100%;overflow:hidden;border-radius:25px;background:#fff;display:flex;flex-direction:column}
+    .phone-status{height:30px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 19px;background:#fff;color:#13263a;font-size:11px;font-weight:700}
+    .phone-status-icons{letter-spacing:2px}
+    .mail-toolbar{height:38px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#f2f6fb;color:#253a50;font-size:11px}
+    .mail-toolbar-actions{display:flex;gap:14px;color:#53677c;font-weight:700}
+    .mail-sender{flex:none;display:flex;align-items:center;gap:9px;padding:11px 14px 6px;background:#fff;color:#20384f}
+    .sender-avatar{width:32px;height:32px;display:grid;place-items:center;flex:none;border-radius:50%;background:#0b1f38;color:#fff;font-size:11px;font-weight:800}
+    .sender-copy{display:grid;gap:2px;font-size:12px}.sender-copy small{color:#66798c;font-size:10px}
+    .sender-time{margin-left:auto;color:#6c7c8e;font-size:10px}
+    .mail-subject{flex:none;padding:5px 14px 11px;background:#fff;color:#162b40;font-size:14px;font-weight:700;line-height:1.35}
+    .email-viewport{flex:1;min-height:0;background:#edf2f7}
+    .email-viewport iframe{display:block;width:100%;height:100%;min-height:0;border:0;background:#06182a}
+    .mobile-actions{height:48px;flex:none;display:flex;gap:8px;align-items:center;justify-content:center;padding:5px 12px;background:#fff}
+    .mobile-actions button{height:34px;flex:1;border:1px solid #d6dfe8;border-radius:18px;background:#fff;color:#34495d;font:600 11px Arial,Helvetica,sans-serif}
+    .mobile-actions button:disabled{opacity:.65;cursor:not-allowed}
+    .phone-shell.landscape{width:min(100%,760px);aspect-ratio:852/393}.phone-shell.landscape .phone-screen{border-radius:24px}
+    .desktop-shell{width:100%;min-height:700px;border:1px solid #d5dfe8;border-radius:5px;background:#fff;box-shadow:0 8px 24px rgba(16,37,58,.09);overflow:hidden}
+    .desktop-client-bar{height:42px;display:flex;align-items:center;gap:14px;padding:0 14px;border-bottom:1px solid #e2e8ef;background:#f7f9fc;color:#526b82;font-size:11px}
+    .desktop-message{max-width:760px;margin:0 auto;padding:18px 22px}
+    .desktop-message .mail-sender,.desktop-message .mail-subject{padding-left:0;padding-right:0}
+    .desktop-email-viewport{height:610px;border:1px solid #e2e8ef;overflow:auto;background:#edf2f7}
+    .desktop-email-viewport iframe{display:block;width:100%;height:100%;min-height:0;border:0;background:#06182a}
+    .raw-html{width:100%;min-height:700px;max-height:760px;overflow:auto;padding:16px;border:1px solid #cbd8e2;background:#102235;color:#e4f2fa;font:12px/1.55 Consolas,'Courier New',monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+    .checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+    .check-item{padding:10px;border:1px solid #d9e3eb;background:#fff;color:#526b82;font-size:11px}
+    .check-item strong{display:block;margin-bottom:4px;color:#0b2744;font-size:15px}
+    .check-warning{grid-column:1/-1;border-left:3px solid #f06424;background:#fff7f1}
+    .check-pass{border-left:3px solid #168258}.check-fail{border-left:3px solid #c45632}
+    .quality-note{margin:10px 0 0;padding:10px;border:1px solid #e7c5aa;background:#fff7f1;color:#65432f;font-size:10px;line-height:1.5}
+    .sim-note{margin:10px 0 0;color:#718397;font-size:10px;line-height:1.5}
+    .dark-client .phone-screen,.dark-client .phone-status,.dark-client .mail-sender,.dark-client .mail-subject,.dark-client .mobile-actions{background:#17191d;color:#f1f4f7}
+    .dark-client .mail-toolbar{background:#242830;color:#e5eaf0}
+    .dark-client .sender-copy small,.dark-client .sender-time{color:#b2bdc8}
+    .dark-client .mobile-actions button{border-color:#515862;background:#17191d;color:#e5eaf0}
+    .landscape-control{display:none}
+    .preview[data-mode="mobile"],.preview[data-mode="dark"]{--frame-width:420px}
+    @media(max-width:900px){.workspace{grid-template-columns:1fr}.preview{position:static;grid-row:1}.editor{grid-row:2}.rich-editor{min-height:340px}.header-inner{height:58px}.main-nav{display:none}.header-actions .secondary-link{display:none}}
+    @media(max-width:600px){main{padding:20px 12px}.page-utility{align-items:flex-start;flex-direction:column}.editor,.preview{padding:12px}.preview-stage{min-height:calc(100vh - 180px);padding:8px}.phone-shell{padding:7px;border-radius:27px}.phone-shell.landscape{width:100%}.editor-heading,.preview-heading{align-items:flex-start;flex-direction:column}.rich-editor{min-height:300px}.preview-tools{align-items:flex-start;flex-direction:column}.orientation-switch button{min-height:38px}.insert-url{grid-template-columns:1fr}.editor-subtools{align-items:stretch;flex-direction:column}.workflow-strip{grid-template-columns:1fr 1fr}.header-inner{padding:0 12px}.brand{font-size:14px}.brand-mark{width:24px;height:24px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AzTech Africa home">
+        <span class="brand-mark">AZ</span>
+        <span class="brand-word"><strong>AZTECH</strong><span>AFRICA</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/?#featured-articles">Stories &amp; Roundup</a>
+        <a href="/?#deep-dives">Deep Dives</a>
+        <a href="/?#stats-section">Ecosystem Data</a>
+        <a href="/?#partners">Partners</a>
+        <a href="/?#archive-section">Newsletter Archive</a>
+        <a href="/?view=newsletter#studio">Studio</a>
+      </nav>
+      <div class="header-actions">
+        <a class="secondary-link" href="/">View publication</a>
+        <a class="primary-link" href="/?view=newsletter#studio">Open campaign studio</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="page-utility">
+      <div><div class="eyebrow">NEWSLETTER STUDIO</div><h1 id="page-title">The Pulse of Silicon Dar</h1></div>
+      <div class="view-switch" role="group" aria-label="Email client preview"><button aria-pressed="false" data-view="desktop" type="button">Desktop webmail</button><button aria-pressed="true" data-view="mobile" type="button">Mobile phone</button><button aria-pressed="false" data-view="dark" type="button">Dark mode inbox</button><button aria-pressed="false" data-view="html" type="button">Raw HTML</button></div>
+    </div>
+    <div class="workflow-strip" aria-label="Newsletter workflow">
+      <div class="workflow-step"><span>1</span><div><small>Brief</small><strong>Signal and headline</strong></div></div>
+      <div class="workflow-step"><span>2</span><div><small>Stories</small><strong>Pick the signal</strong></div></div>
+      <div class="workflow-step"><span>3</span><div><small>Copy</small><strong>Write and edit</strong></div></div>
+      <div class="workflow-step"><span>4</span><div><small>QA</small><strong>Preview on-device</strong></div></div>
+    </div>
+    <div class="workspace">
+      <section class="editor" aria-labelledby="editor-title">
+        <div class="editor-heading"><h2 id="editor-title">Edit newsletter</h2><span class="save-status" id="save-status" aria-live="polite">Draft saved locally and ready to refine</span></div>
+        <div class="editor-actions">
+          <a href="/" class="secondary-link">Back to publication</a>
+          <a href="/?view=newsletter#studio" class="primary-action">Open studio</a>
+        </div>
+        <div class="quality-note" style="margin-top:0; margin-bottom:12px;">Signal brief: pick the few stories and sponsors that sharpen this issue. The best editions feel curated, calm, and clear.</div>
+        <label for="subject">Subject line<input id="subject" maxlength="200" value="The Pulse of Silicon Dar"></label>
+        <p class="field-help" id="subject-count">0 characters</p>
+        <label for="preheader">Inbox preview text<input id="preheader" maxlength="150" placeholder="Short text shown beside the subject in many inboxes"></label>
+        <p class="field-help" id="preheader-count">0 characters</p>
+        <div class="inbox-snippet"><strong id="snippet-subject">The Pulse of Silicon Dar</strong> <span id="snippet-preheader">Add preview text to see your inbox snippet.</span></div>
+        <label for="mailing-address">Publication postal address<input id="mailing-address" placeholder="Verified mailing address"></label>
+        <p class="field-help">Required for real campaign sends. This value stays in the browser only until you move it into a secure campaign.</p>
+        <label for="test-recipient">Test-send recipient<input id="test-recipient" type="email" placeholder="editor@example.com"></label>
+        <details class="optional-fields">
+          <summary>Published stories and sponsor placements</summary>
+          <p class="field-help">Choose the stories that define this week's signal. Keep the issue sharp and selective; active sponsor cards appear only when they are live.</p>
+          <div id="story-selection">Loading published articles...</div>
+          <div id="sponsor-selection"></div>
+        </details>
+        <label id="email-content-label">Email content</label>
+        <div class="editor-tools" aria-label="Insert content block">
+          <button data-insert="heading" type="button">Add heading</button>
+          <button data-insert="paragraph" type="button">Add paragraph</button>
+          <button data-insert="quote" type="button">Add quote</button>
+        </div>
+        <div class="insert-url"><input id="image-url" type="url" placeholder="Image URL (https://...)"><input id="image-alt" type="text" placeholder="Describe the image"><button class="small-action" id="insert-image" type="button">Add image</button></div>
+        <div id="email-body" class="rich-editor" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="email-content-label"></div>
+        <details class="optional-fields">
+          <summary>Kiswahili summary and merge tags</summary>
+          <label id="swahili-label">Kiswahili summary</label>
+          <div id="swahili-body" class="rich-editor" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="swahili-label"></div>
+          <label class="swahili-toggle"><input id="include-swahili" type="checkbox"><span>Include the summary in this preview</span></label>
+          <div class="merge-tools" aria-label="Insert supported merge tag"><button data-tag="{{ .Subscriber.Attribs.swahiliSummary }}" type="button">Kiswahili attribute</button><button data-tag="{{ UnsubscribeURL }}" type="button">Unsubscribe URL</button></div>
+        </details>
+        <div class="editor-footer"><span class="save-status">Changes preview as you type</span><button class="reset-button" id="reset-draft" type="button">Reset sample</button></div>
+        <div class="export-tools"><button class="small-action" id="copy-html" type="button">Copy email HTML</button><button class="small-action" id="download-html" type="button">Download HTML</button></div>
+        <div class="send-note">Test send and publish are disabled here. Use the authenticated Newsletter Campaigns workspace to send or schedule a real campaign.</div>
+        <button class="button button-orange" id="continue-campaign" type="button">Continue in secure campaign workspace</button>
+      </section>
+      <section class="preview" aria-labelledby="preview-title" data-mode="mobile">
+        <div class="preview-heading"><h2 id="preview-title">Inbox simulation</h2><span class="save-status">Visual preview only · no email sent</span></div>
+        <div class="preview-tools">
+          <label>Client chrome<select id="client-select"><option>Apple Mail · iPhone</option><option>Gmail · Mobile</option><option>Outlook · Mobile</option></select></label>
+          <div class="orientation-switch" role="group" aria-label="Phone orientation"><button aria-pressed="true" id="portrait" type="button">Portrait</button><button aria-pressed="false" id="landscape" type="button">Landscape</button></div>
+        </div>
+        <div class="preview-stage" id="preview-stage">
+          <div class="phone-shell" id="phone-shell">
+            <div class="phone-screen">
+              <div class="phone-status"><span>9:41</span><span class="phone-status-icons">● ▮▮▮</span></div>
+              <div class="mail-toolbar"><span>‹ &nbsp; Inbox</span><span id="client-label">Apple Mail · iPhone</span><span class="mail-toolbar-actions"><span>Archive</span><span>Delete</span><span>•••</span></span></div>
+              <div class="mail-sender"><span class="sender-avatar">AZ</span><span class="sender-copy"><strong>AzTech Africa</strong><small>Weekly Intelligence Brief</small></span><span class="sender-time">07:00</span></div>
+              <div class="mail-subject" id="mail-subject">The Pulse of Silicon Dar</div>
+              <div class="email-viewport"><iframe title="AzTech Africa newsletter email preview" sandbox=""></iframe></div>
+              <div class="mobile-actions"><button type="button" disabled title="Inbox controls are simulated">Reply</button><button type="button" disabled title="Inbox controls are simulated">Forward</button><button type="button" disabled title="Inbox controls are simulated" aria-label="React">☺</button></div>
+            </div>
+          </div>
+          <div class="desktop-shell" id="desktop-shell" hidden>
+            <div class="desktop-client-bar"><strong id="desktop-client-name">Webmail</strong><span>Inbox</span><span>Archive</span><span>Delete</span></div>
+            <div class="desktop-message"><div class="mail-sender"><span class="sender-avatar">AZ</span><span class="sender-copy"><strong>AzTech Africa</strong><small>Weekly Intelligence Brief</small></span><span class="sender-time">07:00</span></div><div class="mail-subject desktop-subject">The Pulse of Silicon Dar</div><div class="desktop-email-viewport"><iframe title="Desktop AzTech Africa newsletter preview" sandbox=""></iframe></div></div>
+          </div>
+          <pre class="raw-html" id="raw-html" hidden></pre>
+        </div>
+        <div class="checks" aria-label="Content checks">
+          <div class="check-item"><strong id="word-count">0</strong>Words in issue</div>
+          <div class="check-item"><strong id="image-count">0</strong>Images</div>
+          <div class="check-item"><strong id="link-count">0</strong>Links</div>
+          <div class="check-item"><strong id="unsubscribe-status">Missing</strong>Unsubscribe link</div>
+          <div class="check-item"><strong id="alt-status">0</strong>Images missing alt text</div>
+          <div class="check-item"><strong id="preheader-status">Missing</strong>Inbox preheader</div>
+          <div class="check-item"><strong id="payload-size">0 KB</strong>Generated HTML size</div>
+          <div class="check-item"><strong id="claim-count">0</strong>Numbers/dates to verify</div>
+          <div class="check-item check-warning" id="address-check"><strong id="address-status">Address needed</strong>Enter the publication's verified postal address before sending.</div>
+        </div>
+        <p class="quality-note">Counts are calculated from the generated email. Number/date flags require human review; they are not fact-checks or a spam score.</p>
+        <p class="sim-note">Client chrome is simulated. The preview does not send or publish campaigns.</p>
+      </section>
+    </div>
+  </main>
+  <script type="module">
+    import { buildEmailHtml, buildNewsletterStarterContent } from '/src/NewsletterCampaigns.jsx';
+
+    const sampleSubject = 'The Pulse of Silicon Dar';
+    const originalSampleBody = buildNewsletterStarterContent();
+    const languageSummaryCell = '<td align="right" style="padding:12px;color:#83c4e4;font-size:12px;font-weight:bold">KISWAHILI SUMMARY AVAILABLE</td>';
+    const englishSampleBody = originalSampleBody
+      .replace(languageSummaryCell, '')
+      .replace('English coverage for everyone, with a Kiswahili summary for readers who opt in.', 'English-first reporting on technology, capital, and policy shaping East Africa.');
+    const sampleBody = englishSampleBody;
+    const phoneFrame = document.querySelector('#phone-shell iframe');
+    const desktopFrame = document.querySelector('#desktop-shell iframe');
+    const subjectInput = document.querySelector('#subject');
+    const preheaderInput = document.querySelector('#preheader');
+    const addressInput = document.querySelector('#mailing-address');
+    const bodyEditor = document.querySelector('#email-body');
+    const swahiliEditor = document.querySelector('#swahili-body');
+    const includeSwahili = document.querySelector('#include-swahili');
+    const pageTitle = document.querySelector('#page-title');
+    const saveStatus = document.querySelector('#save-status');
+    const preview = document.querySelector('.preview');
+    const phoneShell = document.querySelector('#phone-shell');
+    const desktopShell = document.querySelector('#desktop-shell');
+    const rawHtml = document.querySelector('#raw-html');
+    const clientSelect = document.querySelector('#client-select');
+    const modeButtons = [...document.querySelectorAll('[data-view]')];
+    const portraitButton = document.querySelector('#portrait');
+    const landscapeButton = document.querySelector('#landscape');
+    const imageUrlInput = document.querySelector('#image-url');
+    const imageAltInput = document.querySelector('#image-alt');
+    const testRecipientInput = document.querySelector('#test-recipient');
+    const storySelection = document.querySelector('#story-selection');
+    const sponsorSelection = document.querySelector('#sponsor-selection');
+    const saveDraftButton = document.querySelector('#copy-html');
+    const downloadButton = document.querySelector('#download-html');
+    const draftKey = 'aztech-newsletter-preview-draft-v2';
+    let mode = 'mobile';
+    let orientation = 'portrait';
+    let generatedHtml = '';
+    let sourceStories = [];
+    let sourceSponsors = [];
+    let selectedStoryIds = [];
+    let selectedSponsorKeys = [];
+    let storySelectionTouched = false;
+    let sponsorSelectionTouched = false;
+    let savedDraft = {};
+
+    try {
+      savedDraft = JSON.parse(localStorage.getItem(draftKey) || 'null') || {};
+      subjectInput.value = typeof savedDraft?.subject === 'string' ? savedDraft.subject : sampleSubject;
+      const savedBody = typeof savedDraft?.body === 'string' ? savedDraft.body : originalSampleBody;
+      const isBuiltInDemo = savedBody.includes("Microsoft's Nairobi engineering centre") && savedBody.includes('Bitway') && savedBody.includes('Seed G3');
+      bodyEditor.innerHTML = (isBuiltInDemo ? sampleBody : savedBody)
+        .replace(languageSummaryCell, '')
+        .replace('English coverage for everyone, with a Kiswahili summary for readers who opt in.', 'English-first reporting on technology, capital, and policy shaping East Africa.');
+      preheaderInput.value = typeof savedDraft?.preheader === 'string' ? savedDraft.preheader : '';
+      addressInput.value = typeof savedDraft?.address === 'string' ? savedDraft.address : '';
+      swahiliEditor.innerHTML = typeof savedDraft?.swahiliBody === 'string' ? savedDraft.swahiliBody : '';
+      includeSwahili.checked = savedDraft?.includeSwahili === true;
+      testRecipientInput.value = typeof savedDraft?.testEmail === 'string' ? savedDraft.testEmail : '';
+      storySelectionTouched = savedDraft?.storySelectionTouched === true;
+      sponsorSelectionTouched = savedDraft?.sponsorSelectionTouched === true;
+      selectedStoryIds = Array.isArray(savedDraft?.storyIds) ? savedDraft.storyIds.map(String) : [];
+      selectedSponsorKeys = Array.isArray(savedDraft?.sponsorKeys) ? savedDraft.sponsorKeys : [];
+    } catch {
+      subjectInput.value = sampleSubject;
+      bodyEditor.innerHTML = sampleBody;
+      preheaderInput.value = '';
+      addressInput.value = '';
+      swahiliEditor.innerHTML = '';
+      includeSwahili.checked = false;
+    }
+
+    function sponsorKey(card) {
+      return `${card.sponsor}|${card.title}|${card.clickUrl}`;
+    }
+
+    function renderSourceSelections() {
+      storySelection.replaceChildren();
+      sponsorSelection.replaceChildren();
+      const articleManagementLink = document.createElement('a');
+      articleManagementLink.href = '/?view=stories#studio';
+      articleManagementLink.textContent = 'Manage articles in Stories';
+      articleManagementLink.className = 'field-help';
+      if (!sourceStories.length) {
+        const empty = document.createElement('p');
+        empty.textContent = 'No published articles are available.';
+        storySelection.append(empty);
+      }
+      sourceStories.forEach((story) => {
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = selectedStoryIds.includes(String(story.id));
+        checkbox.disabled = !checkbox.checked && selectedStoryIds.length >= 3;
+        const copy = document.createElement('span');
+        const title = document.createElement('strong');
+        title.textContent = story.cardTitle || story.title || 'Untitled article';
+        const detail = document.createElement('small');
+        detail.textContent = `${story.label || story.category || 'Story'}${story.imageUrl ? ' · Image ready' : ' · Text only'}`;
+        copy.append(title, document.createElement('br'), detail);
+        label.append(checkbox, copy);
+        storySelection.append(label);
+        checkbox.addEventListener('change', () => {
+          storySelectionTouched = true;
+          selectedStoryIds = checkbox.checked
+            ? [...selectedStoryIds, String(story.id)].slice(0, 3)
+            : selectedStoryIds.filter((id) => id !== String(story.id));
+          renderSourceSelections();
+          saveDraft();
+        });
+      });
+      storySelection.append(articleManagementLink);
+
+      if (!sourceSponsors.length) {
+        const empty = document.createElement('p');
+        empty.textContent = 'No active sponsor placements yet. Add one to keep the issue supported and useful to readers.';
+        sponsorSelection.append(empty);
+      }
+      sourceSponsors.forEach((sponsor) => {
+        const key = sponsorKey(sponsor);
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = selectedSponsorKeys.includes(key);
+        const copy = document.createElement('span');
+        const title = document.createElement('strong');
+        title.textContent = sponsor.title;
+        const detail = document.createElement('small');
+        detail.textContent = `${sponsor.sponsor} · Sponsored`;
+        copy.append(title, document.createElement('br'), detail);
+        label.append(checkbox, copy);
+        sponsorSelection.append(label);
+        checkbox.addEventListener('change', () => {
+          sponsorSelectionTouched = true;
+          selectedSponsorKeys = checkbox.checked ? [...selectedSponsorKeys, key] : selectedSponsorKeys.filter((item) => item !== key);
+          saveDraft();
+        });
+      });
+      const sponsorManagementLink = document.createElement('a');
+      sponsorManagementLink.href = '/?view=media#studio';
+      sponsorManagementLink.textContent = 'Manage placements in Site settings';
+      sponsorManagementLink.className = 'field-help';
+      sponsorSelection.append(sponsorManagementLink);
+    }
+
+    async function loadPublicationSources() {
+      try {
+        const [articlesResponse, settingsResponse] = await Promise.all([fetch('/api/articles'), fetch('/api/site-settings')]);
+        if (!articlesResponse.ok || !settingsResponse.ok) throw new Error('Publication data is unavailable.');
+        const [articles, settings] = await Promise.all([articlesResponse.json(), settingsResponse.json()]);
+        sourceStories = articles.filter((story) => (!story.status || story.status === 'published') && story.id && story.title);
+        sourceSponsors = (settings.newsletterAds || []).filter((card) => card.active && card.title && card.imageUrl && card.clickUrl);
+        const validStories = new Set(sourceStories.map((story) => String(story.id)));
+        const validSponsors = new Set(sourceSponsors.map(sponsorKey));
+        selectedStoryIds = storySelectionTouched
+          ? selectedStoryIds.filter((id) => validStories.has(id)).slice(0, 3)
+          : sourceStories.filter((story) => story.category !== 'archive' && story.imageUrl).slice(0, 3).map((story) => String(story.id));
+        selectedSponsorKeys = sponsorSelectionTouched
+          ? selectedSponsorKeys.filter((key) => validSponsors.has(key))
+          : sourceSponsors.map(sponsorKey);
+        renderSourceSelections();
+        saveDraft();
+      } catch (error) {
+        storySelection.textContent = `Published stories could not be loaded: ${error.message}`;
+        sponsorSelection.textContent = 'Sponsor placements are currently unavailable.';
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
+    }
+
+    function renderPreview() {
+      const subject = subjectInput.value.trim() || sampleSubject;
+      const isDesktop = mode === 'desktop';
+      const darkMode = mode === 'dark';
+      pageTitle.textContent = subjectInput.value.trim() || sampleSubject;
+      document.querySelector('#snippet-subject').textContent = subject;
+      document.querySelector('#snippet-preheader').textContent = preheaderInput.value.trim() || 'Add preview text to see your inbox snippet.';
+      document.querySelector('#mail-subject').textContent = subject;
+      document.querySelector('.desktop-subject').textContent = subject;
+      document.querySelector('#client-label').textContent = clientSelect.value;
+      document.querySelector('#desktop-client-name').textContent = clientSelect.value;
+      preview.dataset.mode = mode;
+      phoneShell.hidden = isDesktop || mode === 'html';
+      desktopShell.hidden = !isDesktop;
+      rawHtml.hidden = mode !== 'html';
+      phoneShell.classList.toggle('landscape', orientation === 'landscape');
+      phoneShell.classList.toggle('dark-client', darkMode);
+      modeButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.view === mode)));
+      portraitButton.setAttribute('aria-pressed', String(orientation === 'portrait'));
+      landscapeButton.setAttribute('aria-pressed', String(orientation === 'landscape'));
+      const swahiliBody = swahiliEditor.innerHTML.trim();
+      const showSwahili = includeSwahili.checked && Boolean(swahiliBody);
+      let issueBody = bodyEditor.innerHTML;
+      const englishEditionCell = '<td style="padding:12px;color:#fff;font-size:12px;font-weight:bold">ENGLISH EDITION</td>';
+      if (showSwahili) {
+        if (issueBody.includes('KISWAHILI SUMMARY AVAILABLE')) issueBody = issueBody.replace('KISWAHILI SUMMARY AVAILABLE', 'KISWAHILI SUMMARY INCLUDED');
+        else issueBody = issueBody.replace(englishEditionCell, `${englishEditionCell}${languageSummaryCell.replace('KISWAHILI SUMMARY AVAILABLE', 'KISWAHILI SUMMARY INCLUDED')}`);
+        issueBody = issueBody.replace('English-first reporting on technology, capital, and policy shaping East Africa.', 'A Kiswahili summary is included below for readers who opted in.');
+      } else {
+        issueBody = issueBody.replace(languageSummaryCell, '').replace('KISWAHILI SUMMARY AVAILABLE', '');
+        issueBody = issueBody.replace(englishEditionCell, '<td colspan="2" style="padding:12px;color:#fff;font-size:12px;font-weight:bold">ENGLISH EDITION</td>');
+        issueBody = issueBody.replace('English coverage for everyone, with a Kiswahili summary for readers who opt in.', 'English-first reporting on technology, capital, and policy shaping East Africa.');
+      }
+      const selectedStories = sourceStories.filter((story) => selectedStoryIds.includes(String(story.id)));
+      const selectedSponsors = sourceSponsors.filter((card) => selectedSponsorKeys.includes(sponsorKey(card)));
+      let html = buildEmailHtml(issueBody, subjectInput.value, {
+        segment: 'founders',
+        preheader: preheaderInput.value,
+        swahiliBody,
+        previewSwahili: showSwahili,
+        stories: selectedStories,
+        sponsoredCards: selectedSponsors,
+      });
+      html = html.replace("Add AzTech Africa's verified postal mailing address before sending.", escapeHtml(addressInput.value.trim() || "Add AzTech Africa's verified postal mailing address before sending."));
+      const clientStyles = {
+        'Apple Mail · iPhone': '',
+        'Gmail · Mobile': '<style>.outer{padding:0!important}.email{max-width:600px!important}.content a{color:#1a73e8!important}.pad{padding-left:20px!important;padding-right:20px!important}</style>',
+        'Outlook · Mobile': '<style>.email{width:100%!important}.content,.content p,.content li{font-family:Arial,Helvetica,sans-serif!important;line-height:1.55!important}.content a{color:#0078d4!important}</style>',
+      }[clientSelect.value] || '';
+      if (clientStyles) html = html.replace('</head>', `${clientStyles}</head>`);
+      html = html.replace('</head>', '<style>.content table[style*="background:#1c2a23"],.content table[style*="background:#1c2a23"] td{background:#123a58!important}</style></head>');
+      if (darkMode) {
+        html = html.replace('</head>', '<style>body,.outer{background:#03080f!important}.email,.content{background:#090f18!important}.footer{background:#03080f!important}</style></head>');
+      }
+      generatedHtml = html;
+      phoneFrame.srcdoc = html;
+      desktopFrame.srcdoc = html;
+      rawHtml.textContent = html;
+      updateChecks(html);
+      document.querySelector('#subject-count').textContent = `${subjectInput.value.length} / 200 characters`;
+      document.querySelector('#preheader-count').textContent = `${preheaderInput.value.length} / 150 characters`;
+    }
+
+    function updateChecks(html) {
+      const generated = new DOMParser().parseFromString(html, 'text/html');
+      const generatedBody = generated.body.innerText || generated.body.textContent || '';
+      const words = generatedBody.trim().split(/\s+/).filter(Boolean).length;
+      const images = [...generated.querySelectorAll('img')];
+      const links = [...generated.querySelectorAll('a[href]')];
+      const missingAlt = images.filter((image) => !image.hasAttribute('alt') || !image.getAttribute('alt').trim()).length;
+      const hasUnsubscribe = html.includes('{{ UnsubscribeURL }}');
+      const hasAddress = addressInput.value.trim().length >= 8;
+      const claims = (bodyEditor.innerText.match(/(?:\$\s?\d[\d,.]*|\b\d+(?:\.\d+)?\s?%|\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}\b|\b(?:19|20)\d{2}\b)/gi) || []).length;
+      document.querySelector('#word-count').textContent = String(words);
+      document.querySelector('#image-count').textContent = String(images.length);
+      document.querySelector('#link-count').textContent = String(links.length);
+      document.querySelector('#alt-status').textContent = String(missingAlt);
+      document.querySelector('#alt-status').parentElement.classList.toggle('check-pass', missingAlt === 0);
+      document.querySelector('#alt-status').parentElement.classList.toggle('check-fail', missingAlt > 0);
+      document.querySelector('#preheader-status').textContent = preheaderInput.value.trim() ? 'Present' : 'Missing';
+      document.querySelector('#preheader-status').parentElement.classList.toggle('check-pass', Boolean(preheaderInput.value.trim()));
+      document.querySelector('#payload-size').textContent = `${(new Blob([html]).size / 1024).toFixed(1)} KB`;
+      document.querySelector('#claim-count').textContent = String(claims);
+      document.querySelector('#address-check').classList.toggle('check-pass', hasAddress);
+      document.querySelector('#address-check').classList.toggle('check-fail', !hasAddress);
+      document.querySelector('#unsubscribe-status').textContent = hasUnsubscribe ? 'Present' : 'Missing';
+      document.querySelector('#unsubscribe-status').style.color = hasUnsubscribe ? '#18734b' : '#a73918';
+      document.querySelector('#unsubscribe-status').parentElement.classList.toggle('check-pass', hasUnsubscribe);
+      document.querySelector('#unsubscribe-status').parentElement.classList.toggle('check-fail', !hasUnsubscribe);
+      document.querySelector('#address-status').textContent = hasAddress ? 'Entered · verify it' : 'Address needed';
+    }
+
+    function saveDraft() {
+      try {
+        localStorage.setItem(draftKey, JSON.stringify({ subject: subjectInput.value, body: bodyEditor.innerHTML, preheader: preheaderInput.value, address: addressInput.value, swahiliBody: swahiliEditor.innerHTML, includeSwahili: includeSwahili.checked, testEmail: testRecipientInput.value, storyIds: selectedStoryIds, sponsorKeys: selectedSponsorKeys, storySelectionTouched, sponsorSelectionTouched }));
+        saveStatus.textContent = 'Draft saved in this browser';
+      } catch {
+        saveStatus.textContent = 'Preview only; browser storage unavailable';
+      }
+      renderPreview();
+    }
+
+    function insertBlock(type) {
+      const snippets = {
+        heading: ['h2', 'Section heading'],
+        paragraph: ['p', 'Write your update here.'],
+        quote: ['blockquote', 'Add a useful quote or key insight.'],
+      };
+      const [tagName, placeholder] = snippets[type];
+      const selection = window.getSelection();
+      let range = document.createRange();
+      if (selection?.rangeCount && bodyEditor.contains(selection.anchorNode)) {
+        range = selection.getRangeAt(0);
+      } else {
+        range.selectNodeContents(bodyEditor);
+        range.collapse(false);
+      }
+      range.deleteContents();
+      const block = document.createElement(tagName);
+      block.textContent = placeholder;
+      range.insertNode(block);
+      range.selectNodeContents(block);
+      range.collapse(false);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      bodyEditor.focus();
+      saveDraft();
+    }
+
+    function insertNodeAtCaret(node, editor = bodyEditor) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      if (selection?.rangeCount && editor.contains(selection.anchorNode)) range.setStart(selection.anchorNode, selection.anchorOffset);
+      else { range.selectNodeContents(editor); range.collapse(false); }
+      range.deleteContents();
+      range.insertNode(node);
+      range.setStartAfter(node);
+      range.collapse(true);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      editor.focus();
+    }
+
+    function insertTag(tag) {
+      insertNodeAtCaret(document.createTextNode(tag));
+      saveDraft();
+    }
+
+    function insertImage() {
+      try {
+        const imageUrl = new URL(imageUrlInput.value.trim());
+        if (imageUrl.protocol !== 'https:') throw new Error('Use a secure https image URL.');
+        const alt = imageAltInput.value.trim();
+        if (!alt) throw new Error('Add a short image description for accessibility.');
+        const image = document.createElement('img');
+        image.src = imageUrl.href;
+        image.alt = alt;
+        image.width = 592;
+        image.style.cssText = 'display:block;width:100%;height:auto;margin:12px 0';
+        insertNodeAtCaret(image);
+        imageUrlInput.value = '';
+        imageAltInput.value = '';
+        saveDraft();
+      } catch (error) {
+        saveStatus.textContent = error.message || 'Enter a valid https image URL.';
+      }
+    }
+
+    async function copyEmailHtml() {
+      try {
+        await navigator.clipboard.writeText(generatedHtml);
+        saveStatus.textContent = 'Generated email HTML copied';
+      } catch {
+        saveStatus.textContent = 'Clipboard unavailable; use Download HTML instead';
+      }
+    }
+
+    function downloadEmailHtml() {
+      const file = new Blob([generatedHtml], { type: 'text/html' });
+      const url = URL.createObjectURL(file);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = 'aztech-africa-newsletter.html';
+      anchor.click();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      saveStatus.textContent = 'Generated email HTML downloaded';
+    }
+
+    function continueInCampaignWorkspace() {
+      try {
+        localStorage.setItem('aztech-newsletter-campaign-handoff', JSON.stringify({
+          name: subjectInput.value.trim() || sampleSubject,
+          subject: subjectInput.value,
+          preheader: preheaderInput.value,
+          body: bodyEditor.innerHTML,
+          swahiliBody: swahiliEditor.innerHTML,
+          includeSwahili: includeSwahili.checked,
+          testEmail: testRecipientInput.value.trim(),
+          storyIds: selectedStoryIds,
+          sponsorKeys: selectedSponsorKeys,
+          postalAddress: addressInput.value.trim(),
+        }));
+        window.location.assign('/?view=newsletter#studio');
+      } catch {
+        saveStatus.textContent = 'Could not transfer this draft. Check browser storage and try again.';
+      }
+    }
+
+    subjectInput.addEventListener('input', saveDraft);
+    preheaderInput.addEventListener('input', saveDraft);
+    addressInput.addEventListener('input', saveDraft);
+    testRecipientInput.addEventListener('input', saveDraft);
+    bodyEditor.addEventListener('input', saveDraft);
+    swahiliEditor.addEventListener('input', saveDraft);
+    includeSwahili.addEventListener('change', saveDraft);
+    document.querySelectorAll('[data-insert]').forEach((button) => {
+      button.addEventListener('mousedown', (event) => event.preventDefault());
+      button.addEventListener('click', () => insertBlock(button.dataset.insert));
+    });
+    document.querySelector('#reset-draft').addEventListener('click', () => {
+      subjectInput.value = sampleSubject;
+      bodyEditor.innerHTML = sampleBody;
+      preheaderInput.value = '';
+      addressInput.value = '';
+      swahiliEditor.innerHTML = '';
+      includeSwahili.checked = false;
+      storySelectionTouched = false;
+      sponsorSelectionTouched = false;
+      saveDraft();
+    });
+    document.querySelector('#insert-image').addEventListener('click', insertImage);
+    document.querySelectorAll('[data-tag]').forEach((button) => button.addEventListener('mousedown', (event) => event.preventDefault()));
+    document.querySelectorAll('[data-tag]').forEach((button) => button.addEventListener('click', () => insertTag(button.dataset.tag)));
+    saveDraftButton.addEventListener('click', copyEmailHtml);
+    downloadButton.addEventListener('click', downloadEmailHtml);
+    document.querySelector('#continue-campaign').addEventListener('click', continueInCampaignWorkspace);
+    modeButtons.forEach((button) => button.addEventListener('click', () => { mode = button.dataset.view; renderPreview(); }));
+    portraitButton.addEventListener('click', () => { orientation = 'portrait'; renderPreview(); });
+    landscapeButton.addEventListener('click', () => { orientation = 'landscape'; renderPreview(); });
+    clientSelect.addEventListener('change', renderPreview);
+    renderPreview();
+    loadPublicationSources();
+  </script>
+</body>
+</html>

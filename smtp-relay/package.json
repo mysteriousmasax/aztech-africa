@@ -1,0 +1,14 @@
+{
+  "name": "aztech-resend-relay",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "mailparser": "^3.9.38",
+    "smtp-server": "^3.15.0"
+  }
+}

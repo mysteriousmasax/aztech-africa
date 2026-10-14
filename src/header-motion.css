@@ -1,0 +1,207 @@
+.site-header.site-header.site-header.site-header {
+  background: rgba(6, 24, 43, 0.76);
+  border-bottom-color: rgba(72, 188, 232, 0.28);
+  box-shadow: 0 8px 30px rgba(3, 14, 27, 0.24);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+}
+
+.site-header.site-header.site-header.site-header::after {
+  height: 2px;
+  background: linear-gradient(90deg, #f06424, #fcd116, #14a8d4, #f8fbff, #14a8d4, #fcd116, #f06424);
+  background-size: 220% 100%;
+  animation: signal-rail 12s linear infinite;
+}
+
+.site-header.site-header.site-header.site-header .brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-header.site-header.site-header.site-header .brand-map {
+  display: block;
+  width: 40px;
+  height: 44px;
+  flex: 0 0 auto;
+  padding: 2px;
+  border-radius: 3px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.site-header .header-actions .staff-login-link {
+  min-height: 34px;
+  padding: 0 9px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid #267ba6;
+  border-radius: 4px;
+  color: #f2fbff;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-header .header-actions .staff-login-link:hover,
+.site-header .header-actions .staff-login-link:focus-visible {
+  border-color: #50c3ee;
+  background: #0e4c70;
+}
+
+.site-header .header-actions .staff-login-link svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+@media (max-width: 640px) {
+  .site-header .header-inner {
+    position: relative;
+  }
+
+  .site-header.site-header.site-header.site-header .brand {
+    gap: 5px;
+  }
+
+  .site-header.site-header.site-header.site-header .brand-map {
+    width: 28px;
+    height: 34px;
+  }
+
+  .site-header.site-header.site-header.site-header .brand-type strong,
+  .site-header.site-header.site-header.site-header .brand-type span {
+    font-size: 12px;
+  }
+
+  .site-header .header-actions {
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    gap: 0;
+    margin-left: 0;
+  }
+
+  .site-header .header-actions .header-subscribe {
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    min-height: 34px;
+    padding: 0 8px;
+    transform: translateX(-50%);
+    font-size: 8px;
+  }
+
+  .site-header .header-actions .staff-login-link {
+    width: 34px;
+    min-height: 34px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .site-header .header-actions .staff-login-link span {
+    display: none;
+  }
+
+  .site-header .header-actions .staff-login-link svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (min-width: 901px) {
+  .site-header.site-header.site-header.site-header .header-inner {
+    height: 68px;
+    gap: 14px;
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .site-header.site-header.site-header.site-header .menu-toggle {
+    display: none;
+  }
+
+  .site-header.site-header.site-header.site-header .main-nav {
+    position: static;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: clamp(7px, 0.9vw, 14px);
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+
+  .site-header.site-header.site-header.site-header .main-nav a {
+    padding: 8px 0;
+    border: 0;
+    color: #d1e1ed;
+  }
+
+  .site-header.site-header.site-header.site-header .header-actions {
+    flex: 0 0 auto;
+    gap: 8px;
+    margin-left: 0;
+  }
+
+  .site-header.site-header.site-header.site-header .search-box {
+    display: flex;
+  }
+
+  .site-header.site-header.site-header.site-header .search-box input {
+    width: clamp(105px, 12vw, 155px);
+  }
+}
+
+.hero-kicker > span {
+  animation: signal-pulse 2.6s ease-in-out infinite;
+}
+
+.network-canvas {
+  animation: network-breathe 9s ease-in-out infinite;
+}
+
+@keyframes signal-rail {
+  from { background-position: 0% 50%; }
+  to { background-position: 220% 50%; }
+}
+
+@keyframes signal-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(240, 100, 36, 0.16), 0 0 8px rgba(240, 100, 36, 0.55); }
+  50% { box-shadow: 0 0 0 7px rgba(240, 100, 36, 0.04), 0 0 15px rgba(56, 189, 248, 0.62); }
+}
+
+@keyframes network-breathe {
+  0%, 100% { opacity: 0.16; }
+  50% { opacity: 0.25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header.site-header.site-header.site-header::after,
+  .hero-kicker > span,
+  .network-canvas {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header.site-header.site-header.site-header .brand-map {
+    width: 34px;
+    height: 38px;
+  }
+}
